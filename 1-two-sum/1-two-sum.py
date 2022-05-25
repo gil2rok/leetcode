@@ -1,8 +1,7 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         ##### SOL 1 #####
-        # O(n^2)
-        # target = n1 + n2
+        # O(n^2) naive search
         
         '''
         for i, n1 in enumerate(nums):
@@ -14,8 +13,9 @@ class Solution:
         '''
         
         ##### SOL 2 #####
-        # O(nlogn)?
+        # O(nlogn) sort then use two pointers
         
+        '''
         # check edge case
         if target % 2 == 0: # if target is even
             count = 0
@@ -49,3 +49,14 @@ class Solution:
                 p1 += 1
             elif error < 0:
                 p2 -= 1
+        '''
+        
+        ##### SOL 3 #####
+        # O(n)
+        
+        prev = {} # {num: idx}
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in prev:
+                return [prev[diff], i]
+            prev[n] = i
