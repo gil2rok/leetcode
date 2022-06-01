@@ -8,8 +8,7 @@ class Solution:
         for s in strs:
             counts = [0] * 26
             for c in s:
-                idx = ord(c) - ord('a')
-                counts[idx] += 1
+                counts[ord(c) - ord('a')] += 1
             
             cur_list = anagrams.get(tuple(counts), [])
             cur_list.append(s)
