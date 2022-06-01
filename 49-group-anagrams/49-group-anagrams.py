@@ -3,16 +3,14 @@ from collections import defaultdict
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         ##### SOL 1 #####
-        anagrams = dict()
+        anagrams = defaultdict(list)
         
         for s in strs:
             counts = [0] * 26
             for c in s:
                 counts[ord(c) - ord('a')] += 1
             
-            cur_list = anagrams.get(tuple(counts), [])
-            cur_list.append(s)
-            anagrams[tuple(counts)] = cur_list
+            anagrams[tuple(counts)].append(s)
             
         return anagrams.values()
         
