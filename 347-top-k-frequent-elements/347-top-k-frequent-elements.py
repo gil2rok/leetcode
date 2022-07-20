@@ -16,12 +16,14 @@ class Solution:
             if count < k:
                 heappush(heap, (val,key))
                 count += 1
+                
             # ensure heap contains k most frequent elements
             else:
-                if val > heap[0][0]:
+                min_heap_freq = heap[0][0]
+                if val > min_heap_freq:
                     heapreplace(heap, (val,key))
 
-        # extract elements with k highest frequencies
+        # extract elements with k highest frequencies from heap
         res = [None] * k
         for i in range(k):
             val, key = heappop(heap)
