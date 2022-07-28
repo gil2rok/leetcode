@@ -5,7 +5,7 @@ class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         # return self.n_sol(nums, k)
         # return self.klogn_sol(nums, k)
-        return self.klogn_sol(nums, k)
+        return self.nlogk_sol(nums, k)
         
     def n_sol(self, nums, k):
         # count frequency with dict O(n)
