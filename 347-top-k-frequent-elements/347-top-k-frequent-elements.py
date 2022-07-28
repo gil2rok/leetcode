@@ -3,6 +3,25 @@ from heapq import heappush, heapreplace, heappop
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        return self.n_sol(nums, k)
+        
+    def n_sol(self, nums, k):
+        freq = dict()
+        for i in nums:
+            freq[i] = 1 + freq.get(i, 0)
+        
+        bucket = [[] for i in range(len(nums) + 1)]
+        for num, count in freq.items():
+            bucket[count].append(num)
+            
+        res = []
+        for count in range(len(nums), 0, -1):
+            for num in bucket[count]:
+                res.append(num)
+                if len(res) == k:
+                    return res
+        
+    def nlogk_sol(self, nums, k):
         # initialize and fill frequency dict
         freq_dict = defaultdict(lambda: 0)
         for i in nums:
