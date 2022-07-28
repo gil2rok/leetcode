@@ -16,7 +16,6 @@ class Solution:
             
         res = []
         for count in range(len(nums), 0, -1):
-            print(count)
             for num in bucket[count]:
                 res.append(num)
                 if len(res) == k:
