@@ -8,7 +8,6 @@ class Solution:
         for i in range(len(nums)):
             answer[i] = pre
             pre *= nums[i]
-            #answer[i] = answer[i-1] * nums[i-1]
                         
         # compute postfix
         post = 1
