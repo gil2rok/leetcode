@@ -4,8 +4,11 @@ class Solution:
         answer = [1] * len(nums)
         
         # compute prefix
-        for i in range(1, len(nums)):
-            answer[i] = answer[i-1] * nums[i-1]
+        pre = 1
+        for i in range(len(nums)):
+            answer[i] = pre
+            pre *= nums[i]
+            #answer[i] = answer[i-1] * nums[i-1]
                         
         # compute postfix
         post = 1
