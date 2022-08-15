@@ -1,7 +1,7 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         # convert into lowercase and remove non-alphanumeric characters (letters + numbers)
-        s = ''.join(filter(str.isalnum, s.lower()))
+        #s = ''.join(filter(str.isalnum, s.lower()))
         
         l = 0 # pointer 1
         r = len(s) - 1 # pointer 2
