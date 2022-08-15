@@ -1,7 +1,32 @@
+from collections import defaultdict
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        return self.isValidRow(board) and self.isValidCol(board) and self.isValidSquare(board)
+        return self.neetcode_sol(board)
+        
+        #return self.isValidRow(board) and self.isValidCol(board) and self.isValidSquare(board)
     
+    def neetcode_sol(self, board):
+        row_dict = defaultdict(set)
+        col_dict = defaultdict(set)
+        square_dict = defaultdict(set)
+        
+        for r in range(9):
+            for c in range(9):
+                if board[r][c] == '.':
+                    continue
+                    
+                if (board[r][c] in row_dict[r] or
+                    board[r][c] in col_dict[c] or
+                    board[r][c] in square_dict[(r//3, c//3)]):
+                        return False
+                    
+                row_dict[r].add(board[r][c])
+                col_dict[c].add(board[r][c])
+                square_dict[(r//3, c//3)].add(board[r][c])
+        return True
+                
+        
+        
     def isValidRow(self, board):
         
         # loop over rows
