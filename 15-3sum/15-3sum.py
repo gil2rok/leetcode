@@ -5,14 +5,10 @@ class Solution:
         
         for idx, target in enumerate(nums): # O(n)
             l, r = idx + 1, len(nums) - 1
-            
-            #print(nums, target)
-            
+                        
             while l < r: # O(n)
                 threesum = nums[l] + nums[r] + target
-                
-                #print(nums[l], nums[r], threesum)
-                
+                                
                 if threesum > 0:
                     r -= 1
                 elif threesum < 0:
@@ -20,8 +16,8 @@ class Solution:
                 elif threesum == 0:
                     sol.add(tuple([nums[l], nums[r], target]))
                     
-                    while l<r and nums[l] == nums[l+1]:
-                        l += 1    
+                    #while l<r and nums[l] == nums[l+1]:
+                    #    l += 1    
                     l += 1
         return sol
         
