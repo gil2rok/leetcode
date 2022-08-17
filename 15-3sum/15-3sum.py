@@ -16,8 +16,8 @@ class Solution:
                 elif threesum == 0:
                     sol.add(tuple([nums[l], nums[r], target]))
                     
-                    #while l<r and nums[l] == nums[l+1]:
-                    #    l += 1    
+                    while l<r and nums[l] == nums[l+1]:
+                        l += 1    
                     l += 1
         return sol
         
