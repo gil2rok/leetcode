@@ -21,13 +21,18 @@ class Solution:
                     sol.add(tuple([nums[l], nums[r], target]))
                     
                     while l<r and nums[l] == nums[l+1]:
-                        l += 1
-                    #while l<r and nums[r] == nums[r-1]:
-                    #    r -= 1     
+                        l += 1    
                     l += 1
         return sol
         
         
+        
+####### My Original, Less Efficient Solution #######
+
+# When looping through n targets, I set l, r = 0, len(nums) -1
+# instead of setting l, r = idx + 1, len(nums) - 1 as above
+#
+#
 #         sol = set() # set of sorted tuples
 #         nums.sort() # O(nlogn)
         
