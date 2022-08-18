@@ -5,7 +5,7 @@ class Solution:
         
         # sliding window with two pointers
         while r < len(prices):
-            if prices[l] > prices[r]:
+            if prices[l] >= prices[r]:
                 l = r
             else:
                 max_profit = max(max_profit, prices[r] - prices[l])
