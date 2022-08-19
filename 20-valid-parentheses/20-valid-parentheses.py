@@ -4,7 +4,7 @@ class Solution:
         stack = []
         
         for c in s:
-            if c not in map:
+            if c not in map: # if open paren add to stack
                 stack.append(c)
                 continue
             if not stack or (map[c] != stack[-1]):
@@ -30,10 +30,10 @@ class Solution:
 #                 stack.pop()
 #         return len(stack) == 0
     
-    def opposite(self, c):
-        if c == '(':
-            return ')'
-        elif c == '[':
-            return ']'
-        else:
-            return '}'
+#     def opposite(self, c):
+#         if c == '(':
+#             return ')'
+#         elif c == '[':
+#             return ']'
+#         else:
+#             return '}'
