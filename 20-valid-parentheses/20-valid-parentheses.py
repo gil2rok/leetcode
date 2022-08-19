@@ -3,10 +3,12 @@ class Solution:
         stack = []
         
         for c in s:
-            #print(c, '\tStack: ', stack)
             # add open paren to stack
             if c == '(' or c=='[' or c == '{':
                 stack.append(self.opposite(c))
+                
+            # if have close paren, check that it is on top of stack
+            # (and also check that stack is not empty) 
             else:
                 if len(stack) == 0 or c != stack[-1]:
                     return False
