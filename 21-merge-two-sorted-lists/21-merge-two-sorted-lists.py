@@ -5,6 +5,7 @@
 #         self.next = next
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        # Time O(n) | Space O(1)
         dummy = ListNode()
         tail = dummy
         
@@ -24,6 +25,8 @@ class Solution:
         
         return dummy.next
         
+### More Verbose way of solving the problem ###
+
 #         # edge case if list1 or list2 is empty
 #         if list1 == None:
 #             return list2
