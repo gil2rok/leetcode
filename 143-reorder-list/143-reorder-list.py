@@ -19,16 +19,16 @@ class Solution:
             pt = pt.next
             idx += 1
         
-        # while loc dict is not empty
-        l, r, = 0, idx-1
+        # while l, r pointers have not met 
+        l, r, = 0, idx-1 # considering even and odd length linked lists
         while l + 1 < r:
-            #print(loc[l].next)
-            #print(loc[r])
             
+            # redirect pointers in list
             loc[r-1].next = None
             loc[r].next = loc[l+1]
             loc[l].next = loc[r]
             
+            # increment l, r pointers
             l += 1
             r -= 1
             
