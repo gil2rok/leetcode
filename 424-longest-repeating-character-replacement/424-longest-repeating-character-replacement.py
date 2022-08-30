@@ -1,5 +1,3 @@
-from heapq import heapify
-
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         counts = collections.defaultdict(int) # dict[char] = count
@@ -11,7 +9,7 @@ class Solution:
             counts[s[r]] += 1
             majority_count = max(majority_count, counts[s[r]])
 
-            # while cannot transform cur str into a 1-letter substring with k replacements
+            # while cannot transform cur str into a str containing only 1 letter using k transformations
             while majority_count + k < len(s[l:r+1]):
                 counts[s[l]] -= 1 # decrement count dict
                 majority_count -= 1
