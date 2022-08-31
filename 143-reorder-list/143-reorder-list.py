@@ -9,6 +9,8 @@ class Solution:
         Do not return anything, modify head in-place instead.
         """
         
+        ##### Time O(n) | Space O(1) #####
+        
         # find middle
         slow, fast = head, head
         while fast != None and fast.next != None and fast.next.next != None:
@@ -35,9 +37,7 @@ class Solution:
             second.next = tmp1
             
             first = tmp1
-            second = tmp2
-        
-        
+            second = tmp2 
         
        
         
