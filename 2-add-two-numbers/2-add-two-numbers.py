@@ -8,6 +8,7 @@ class Solution:
     ##### Time O(m + n) | Space O(1)
     # m = len(l1), n = len(l2)
     # space does not include required output
+    
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         carry = 0
         dummy = ListNode()
