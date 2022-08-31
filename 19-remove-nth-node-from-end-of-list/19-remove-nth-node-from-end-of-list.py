@@ -5,7 +5,7 @@
 #         self.next = next
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        # Time O(n) | Space O(1)
+        ##### Time O(n) | Space O(1) #####
         
         # left and right pointers that are n+1 nodes apart
         dummy = ListNode(0, head)
