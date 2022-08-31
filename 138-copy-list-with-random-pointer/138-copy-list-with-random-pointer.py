@@ -10,11 +10,12 @@ from heapq import heappush, heappop
 
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
-        copy_head = Node(0)
-        cur, copy = head, copy_head
+        ##### Time O(2n) | Space O(n) #####
+        copy_head = Node(0) # dummy node
         orig_dict = dict() # original node --> copy node
         
         # copy .next attribute
+        cur, copy = head, copy_head
         while cur != None:
             copy.next = Node(cur.val)
             copy = copy.next
