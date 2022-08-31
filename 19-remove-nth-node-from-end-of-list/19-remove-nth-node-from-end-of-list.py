@@ -10,7 +10,7 @@ class Solution:
         loc = [] # node index --> node
         idx = 0
         
-        # fill dict with nodes and their indexes!
+        # fill loc array with nodes and their indexes
         pt = head
         while pt != None:
             loc.append(pt)
@@ -24,8 +24,7 @@ class Solution:
             loc[(-n) - 1].next = None
             return head
         if n == idx:
-            return head.next
-        
+            return head.next  
             
         # remove nth node from end of linked list
         loc[(-n) - 1].next = loc[((-n) + 1)]
