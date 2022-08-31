@@ -5,30 +5,43 @@
 #         self.next = next
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        ##### Time O(n) | Space O(n) #####
-        # init loc dict and idx variable
-        loc = [] # node index --> node
-        idx = 0
-        
-        # fill loc array with nodes and their indexes
-        pt = head
-        while pt != None:
-            loc.append(pt)
-            pt = pt.next
-            idx += 1
-        
-        # edge cases
-        if idx == 1:  # idx is now equal to length of linked list
-            return None
-        if n == 1:
-            loc[(-n) - 1].next = None
-            return head
-        if n == idx:
-            return head.next  
+        dummy = ListNode(0, head)
+        left, right = dummy, head
+        while right != None and n > 0:
+            right = right.next
+            n -= 1
             
-        # remove nth node from end of linked list
-        loc[(-n) - 1].next = loc[((-n) + 1)]
-        return head
+        while right != None:
+            left = left.next
+            right = right.next
+        
+        left.next = left.next.next
+        return dummy.next
+        
+#         ##### Time O(n) | Space O(n) #####
+#         # init loc dict and idx variable
+#         loc = [] # node index --> node
+#         idx = 0
+        
+#         # fill loc array with nodes and their indexes
+#         pt = head
+#         while pt != None:
+#             loc.append(pt)
+#             pt = pt.next
+#             idx += 1
+        
+#         # edge cases
+#         if idx == 1:  # idx is now equal to length of linked list
+#             return None
+#         if n == 1:
+#             loc[(-n) - 1].next = None
+#             return head
+#         if n == idx:
+#             return head.next  
+            
+#         # remove nth node from end of linked list
+#         loc[(-n) - 1].next = loc[((-n) + 1)]
+#         return head
         
 #         ##### Time O(2n) | Space O(1) #####
 #         # edge case
@@ -53,15 +66,15 @@ class Solution:
 #         # reverse linked list again
 #         return self.reverse(tail)
         
-    def reverse(self, head):
-        # reverse linked list
-        prev, cur = None, head
+#     def reverse(self, head):
+#         # reverse linked list
+#         prev, cur = None, head
         
-        while cur != None:
-            tmp = cur.next
-            cur.next = prev
-            prev = cur
-            cur = tmp
+#         while cur != None:
+#             tmp = cur.next
+#             cur.next = prev
+#             prev = cur
+#             cur = tmp
             
-        return prev
+#         return prev
         
