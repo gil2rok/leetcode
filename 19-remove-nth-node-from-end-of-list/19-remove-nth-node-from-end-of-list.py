@@ -5,16 +5,21 @@
 #         self.next = next
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        # Time O(n) | Space O(1)
+        
+        # left and right pointers that are n+1 nodes apart
         dummy = ListNode(0, head)
         left, right = dummy, head
         while right != None and n > 0:
             right = right.next
             n -= 1
             
+        # shift left and right pointers to end of list
         while right != None:
             left = left.next
             right = right.next
         
+        # remove n-th node from end of list
         left.next = left.next.next
         return dummy.next
         
