@@ -14,24 +14,26 @@ class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]': 
         oldToCopy = {None : None} # old node --> deep copy of old node
         
-        # fill dict with old and copy nodes
+        # create copy nodes, set .val attribute, and insert them into dict
         cur = head
         while cur != None:
             copy = Node(cur.val)
             oldToCopy[cur] = copy
             cur = cur.next
         
+        # set .next and .random attributes of copy nodes
         cur = head
         while cur != None:
             copy = oldToCopy[cur]
             copy.next = oldToCopy[cur.next]
             copy.random = oldToCopy[cur.random]
             cur = cur.next
+            
         return oldToCopy[head]
             
         
-#     ##### Time O(2n) | Space O(n) #####
-#     # space excludes the deep copy itself
+      ##### Time O(2n) | Space O(n) #####
+      # space excludes the deep copy itself
 #     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]': 
 #         copy_head = Node(0) # dummy node
 #         orig_dict = dict() # original node --> copy node
