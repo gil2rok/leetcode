@@ -11,45 +11,44 @@ class Solution:
     
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         carry = 0
-        res = ListNode()
+        dummy = ListNode()
         
         # add up numbers in both list1 and list2
-        p1, p2 = l1, l2
-        dummy = res
-        while p1 != None and p2 != None:
+        cur = dummy
+        while l1 != None and l2 != None:
             # create new node
-            digit = (p1.val + p2.val + carry) % 10
-            dummy.next = ListNode(val=digit)
+            digit = (l1.val + l2.val + carry) % 10
+            cur.next = ListNode(val=digit)
             
             # increment pointers and update carry
-            carry = (p1.val + p2.val + carry) // 10
-            dummy = dummy.next
-            p1 = p1.next
-            p2 = p2.next
+            carry = (l1.val + l2.val + carry) // 10
+            cur = cur.next
+            l1 = l1.next
+            l2 = l2.next
           
         # if list 1 has more numbers
-        while p1 != None:
+        while l1 != None:
             # create new node
-            digit = (p1.val + carry) % 10
-            dummy.next = ListNode(val=digit)
+            digit = (l1.val + carry) % 10
+            cur.next = ListNode(val=digit)
             
             # increment pointers
-            carry = (p1.val + carry) // 10
-            dummy = dummy.next
-            p1 = p1.next
+            carry = (l1.val + carry) // 10
+            cur = cur.next
+            l1 = l1.next
 
         # if list2 has more numbers
-        while p2 != None:
+        while l2 != None:
             # create new node
-            digit = (p2.val + carry) % 10
-            dummy.next = ListNode(val=digit)
+            digit = (l2.val + carry) % 10
+            cur.next = ListNode(val=digit)
             
             # increment pointers
-            carry = (p2.val + carry) // 10
-            dummy = dummy.next
-            p2 = p2.next
+            carry = (l2.val + carry) // 10
+            cur = cur.next
+            l2 = l2.next
             
         # edge case of leftover '1'
-        if carry == 1: dummy.next = ListNode(carry)
+        if carry == 1: cur.next = ListNode(carry)
 
-        return res.next
+        return dummy.next
