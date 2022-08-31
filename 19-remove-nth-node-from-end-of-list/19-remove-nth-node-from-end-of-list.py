@@ -7,15 +7,15 @@ class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         ##### Time O(2n) | Space O(1) #####
         # edge cases
-        if head.next == None:
-            return None
-        if head.next.next == None:
-            if n == 1:
-                head.next = None
-                return head
-            else:
-                head = head.next
-                return head
+        # if head.next == None:
+        #     return None
+        # if head.next.next == None:
+        #     if n == 1:
+        #         head.next = None
+        #         return head
+        #     else:
+        #         head = head.next
+        #         return head
         if n == 1:
             tail = self.reverse(head)
             tail = tail.next
