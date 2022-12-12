@@ -25,9 +25,7 @@ class Allocator:
                 
         if free_units != size:
             start_idx = -1
-               
-        #print(size, start_idx)
-        #print(self.memory, '\n')
+
         # assign memory id to free memory, if there is room
         if start_idx != -1:
             for i in range(start_idx, start_idx + size):
